@@ -14,7 +14,7 @@ staged as (
         paymentmethod as payment_method,
         status,
         -- amount is stored in cents, convert it to dollars
-        round(amount / 100, 2) as amount,
+        amount / 100 as amount,
         created as created_at
     from source
 

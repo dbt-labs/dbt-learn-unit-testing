@@ -19,3 +19,17 @@ unit_tests:
         - {order_id: 4, status: placed}
         - {order_id: 5, status: shipped}
         - {order_id: 6, status: placed}
+
+  - name: test_days_since_ordered
+    description: Test my datediff caluclation for days_since_ordered
+    model: stg_orders
+    overrides:
+      macros:
+        current_timestamp: "date('2023-01-15')"
+    given:
+      - input: source('jaffle_shop',  'orders')
+        rows:
+          - {order_date: 2023-01-01}
+    expect:
+      rows:
+        - {order_date: 2023-01-01, days_since_ordered: 14}

@@ -16,8 +16,8 @@ staged as (
         datediff('day', order_date, {{ current_timestamp() }} ) as days_since_ordered,
         status like '%pending%' as is_status_pending,
         case 
-            when status like '%return%' then 'returned'
             when status like '%pending%' then 'placed'
+            when status like '%return%' then 'returned'
             else status
         end as status
     from source

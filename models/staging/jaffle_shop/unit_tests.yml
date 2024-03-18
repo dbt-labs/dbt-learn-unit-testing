@@ -25,7 +25,7 @@ unit_tests:
     model: stg_orders
     overrides:
       macros:
-        current_timestamp: "date('2024-01-15')"
+        dbt.current_timestamp: "date('2024-01-15')"
     given:
       - input: source('jaffle_shop',  'orders')
         rows:

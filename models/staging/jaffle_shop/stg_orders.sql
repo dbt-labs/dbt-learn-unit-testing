@@ -12,8 +12,7 @@ staged as (
         id as order_id,
         user_id as customer_id,
         order_date,
-        -- update to dbt.current_timestamp when https://github.com/dbt-labs/dbt-core/issues/9624 is fixed
-        datediff('day', order_date, {{ current_timestamp() }} ) as days_since_ordered,
+        datediff('day', order_date, {{ dbt.current_timestamp() }} ) as days_since_ordered,
         status like '%pending%' as is_status_pending,
         case 
             when status like '%pending%' then 'placed'

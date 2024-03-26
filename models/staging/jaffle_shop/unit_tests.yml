@@ -11,6 +11,7 @@ unit_tests:
          - {id: 4, status: pending}
          - {id: 5, status: shipped}
          - {id: 6, status: placed}
+         - {id: 7, status: shipped_pending}
     expect: # the expected output given the inputs above
       rows:
         - {order_id: 1, status: returned}
@@ -19,6 +20,7 @@ unit_tests:
         - {order_id: 4, status: placed}
         - {order_id: 5, status: shipped}
         - {order_id: 6, status: placed}
+        - {order_id: 7, status: shipped}
 
   - name: test_days_since_ordered
     description: Test my datediff caluclation for days_since_ordered

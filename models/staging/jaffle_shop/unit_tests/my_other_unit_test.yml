@@ -1,0 +1,12 @@
+unit_tests:
+  - name: test_full_name_csv_style
+    model: stg_customers
+    given:
+      - input: source('jaffle_shop',  'customers')
+        format: csv
+        fixture: my_stg_customers_fixture
+    expect:
+      rows:
+        - {full_name: Dan Horner}
+        - {full_name: Grace Goheen}
+        - {full_name: Doug Beatty}

@@ -3,7 +3,7 @@ with orders as  (
     select * from {{ ref('stg_orders' )}}
 
 ),
-
+--comment line
 payments as (
 
     select * from {{ ref('stg_payments') }}
